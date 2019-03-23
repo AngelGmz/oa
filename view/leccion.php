@@ -99,7 +99,7 @@
                                                 <td>5. suma = num1 + num2;</td>
                                         </tr>
                                         <tr v-bind:class="active(6)">
-                                                <td>5. imprimir(suma)</td>
+                                                <td>5. imprimir(suma);</td>
                                         </tr>
                                         <tr v-bind:class="active(7)">
                                                 <td>7. FIN</td>

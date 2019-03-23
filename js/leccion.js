@@ -77,24 +77,3 @@ var app = new Vue({
         
     }
   })
-
-var player;
-function onYouTubePlayerAPIReady() {
-    player = new YT.Player('video-youtube', {
-      height: '380px',
-      width: '100%',
-      videoId: 'kqEfoD9XYHQ',
-      events: {
-        //'onReady': onAutoPlay,
-        'onStateChange': onFinish
-      }
-    });
-}
-function onAutoPlay(event) {
-    event.target.playVideo();
-}
-function onFinish(event) {        
-    if(event.data === 0) {            
-       app.completo = true;
-    }
-}
