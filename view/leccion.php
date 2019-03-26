@@ -99,7 +99,7 @@
                                                 <td>5. suma = num1 + num2;</td>
                                         </tr>
                                         <tr v-bind:class="active(6)">
-                                                <td>5. imprimir(suma);</td>
+                                                <td>6. imprimir('El resultado es: '+ suma);</td>
                                         </tr>
                                         <tr v-bind:class="active(7)">
                                                 <td>7. FIN</td>
@@ -110,16 +110,16 @@
                             </div>
                             <div class="col-md-4">
                                 <h5>Internamente</h5>
-                                <h5 class="bg-dark p-5">num: 0</h5>
+                                <h5 class="bg-dark p-5">{{outNum1}}<br>{{outNum2}}<br>{{outSuma}}</h5>
                                 <h5>Pantalla</h5>
-                                <h5 class="bg-dark p-5">></h5>
+                                <h5 class="bg-dark p-5">{{outPantalla}}<br>{{outPantalla2}}<br>{{outPantalla3}}<br></h5>
                             </div>
                             <div class="col-md-4">
                                 <h5>Controles</h5>
-                                <button v-on:click="nivel -= 1" class="btn btn-lg btn-primary" ><i class="fas fa-step-backward" ></i></button>
-                                <button class="btn btn-lg btn-primary" ><i class="fas fa-play"></i></button>
-                                <button class="btn btn-lg btn-primary" ><i class="fas fa-pause"></i></button>
-                                <button v-on:click="nivel += 1" class="btn btn-lg btn-primary" ><i class="fas fa-step-forward"  ></i></button>
+                                <button v-on:click="prev()" class="btn btn-lg btn-primary" ><i class="fas fa-step-backward" ></i></button>
+                                <button v-on:click="play()" class="btn btn-lg btn-primary" ><i class="fas fa-play"></i></button>
+                                <button v-on:click="pause()" class="btn btn-lg btn-primary" ><i class="fas fa-pause"></i></button>
+                                <button v-on:click="next()" class="btn btn-lg btn-primary" ><i class="fas fa-step-forward"  ></i></button>
                             </div>
                         </div>
                     </div>
@@ -134,53 +134,26 @@
                         <h4 class="card-title">Nombre de la actividad</h4>
                         <form @submit.prevent="submit">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <legend>1.0 ¿Cúal es la respuesta correcta?</legend>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio"
-                                                class="custom-control-input" checked="">
-                                            <label class="custom-control-label" for="customRadio1">Toggle this custom
-                                                radio</label>
+                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" >
+                                            <label class="custom-control-label" for="customRadio1">Toggle this custom  radio</label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio"
-                                                class="custom-control-input">
+                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
                                             <label class="custom-control-label" for="customRadio2">Or toggle this other
                                                 custom radio</label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio"
-                                                class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Or toggle this other
-                                                custom radio</label>
+                                            <input type="radio" id="customRadio3" name="customRadio"   class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio3">Or toggle this other custom radio</label>
                                         </div>
 
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio"
-                                                class="custom-control-input" checked="">
-                                            <label class="custom-control-label" for="customRadio1">Toggle this custom
-                                                radio</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio"
-                                                class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Or toggle this other
-                                                custom radio</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio"
-                                                class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Or toggle this other
-                                                custom radio</label>
-                                        </div>
-
-                                    </div>
-                                </div>
+                               
                             </div>
                             <div class="row mt-4">
                                 <div class="col-md-3"></div>

@@ -1,4 +1,4 @@
-
+var inter;
 
 var app = new Vue({
     el: '#app',
@@ -11,16 +11,71 @@ var app = new Vue({
       preguntas: [],
       respuestas: [],
       nivel: 1,
-      num: 0,
+      num: null,
+      num2: null,
+      suma: null,
       activeClass: null,
+      interno: null,
+      pantalla: "Iniciando Algoritmo...",
+      pantalla2: null,
+      pantalla3: null,
+      estado: 1,
     },
     methods: {
+        next(){
+            if(this.nivel <=6 ){
+                this.nivel += 1;
+            }else{
+                window.clearInterval(inter);
+            }
+        },
+        prev(){
+            if(this.nivel >=2 ){
+                this.nivel -= 1;
+            }
+        },
+        play(){
+            inter = setInterval(response =>{
+                this.next();
+            },1800)
+        },
+        pause(){
+            window.clearInterval(inter);
+        },
         active(num){
-            
                 if(num == this.nivel){
-                   return 'bg-dark text-white';
+                   switch(num){
+                        case 1:
+                            this.pantalla = 'Iniciando Algoritmo...';
+                            this.num = null;
+                        break;
+                        
+                        case 2:
+                             this.num = 5;
+                             this.num2 = null;
+                             this.suma = null;
+                        break;
+                        case 3:
+                            this.num2 = 6;
+                            this.suma = null;
+                            break;
+                        case 4:
+                            this.suma = '0';
+                        break;
+                        case 5:
+                            this.suma = this.num + this.num2;
+                            this.pantalla2 = '';
+                        break;
+                        case 6:
+                            this.pantalla2 = 'El resultado es: '+this.suma;
+                            this.pantalla3 = '';
+                        break;
+                        case 7:
+                            this.pantalla3 = 'Algoritmo Terminado.';
+                        break;
+                   }
+                   return 'bg-dark text-white'
                 }
-           
         },
         submit(){
             this.errors = []
@@ -29,8 +84,6 @@ var app = new Vue({
                    this.errors.push("Las contraseñas deben coincidir ")
                 }else if ( !this.contraLength) {
                     this.errors.push("Las contraseñas deben contener al menos 6 caracteres")
-                                   
-                
                 }else{
                     var bodyFormData = new FormData();
                     bodyFormData.set('nombre', this.nombre);
@@ -74,6 +127,48 @@ var app = new Vue({
         
     },
     computed: {
+        outNum1(){
+            if(this.num){
+                return 'num1: '+this.num;
+            }else{
+                return '';
+            }
+        },
+        outNum2(){
+            if(this.num2){
+                return 'num2: '+this.num2;
+            }else{
+                return '';
+            }
+        },
+        outSuma(){
+            if(this.suma){
+                return 'suma: '+this.suma;
+            }else{
+                return '';
+            }
+        },
+        outPantalla(){
+            if(this.pantalla){
+                return '> '+this.pantalla;
+            }else{
+                return '';
+            }
+        },
+        outPantalla2(){
+            if(this.pantalla2){
+                return '> '+this.pantalla2;
+            }else{
+                return '';
+            }
+        },
+        outPantalla3(){
+            if(this.pantalla3){
+                return '> '+this.pantalla3;
+            }else{
+                return '';
+            }
+        },
         
     }
   })
