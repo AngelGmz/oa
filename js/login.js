@@ -13,8 +13,8 @@ var app = new Vue({
                 var bodyFormData = new FormData();
                 bodyFormData.set('usuario', this.user);
                 bodyFormData.set('contra', this.pwd);
-                window.location.href = "leccion.php"
-                /*
+                //window.location.href = "leccion.php"
+                
                 let res =  axios({
                     method: 'post',
                     url: 'controller/login.php',
@@ -28,14 +28,14 @@ var app = new Vue({
                            this.errors.push("Usuario o contraseña incorrectos")
                        }else{
                             var notification = new Notification("Bienvenido Iniciando Sesión")
-                            window.location.href = "recepcion.php";
+                            window.location.href = "leccion.php";
                        }
                     })
                     .catch(function (response) {
                         //handle error
                         console.log(response);
                     });
-                    */
+                   
 
              }
             else{

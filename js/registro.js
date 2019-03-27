@@ -22,17 +22,17 @@ var app = new Vue({
                     bodyFormData.set('nombre', this.nombre);
                     bodyFormData.set('correo', this.correo);
                     bodyFormData.set('contra', this.contra);
-                /*    
+                
                 axios({
                         method: 'post',
-                        url: 'controller/victimas.php?task=alta',
+                        url: 'controller/registro.php?task=alta',
                         data: bodyFormData,
                         config: { headers: {'Content-Type': 'multipart/form-data' }}
                         })
                         .then(response => {
                             //handle success
                         if(response.data){
-                            var notification = new Notification("Guardado correcto")
+                            var notification = new Notification("Registrado Correctamente, Porfavor Inicia Sesión")
 
                             
                         }else{
@@ -42,8 +42,8 @@ var app = new Vue({
                         .catch(function (response) {
                             //handle error
                             console.log(response);
-                        });*/
-                        window.location = 'index.php';
+                        });
+                        window.location.href = 'index.php';
                 }
                 
 

@@ -5,7 +5,7 @@ class Connection
 	//datos de la base de datos
 	protected $con;
 	private $host = "localhost";
-	private $dbname = "ceeaiv";
+	private $dbname = "oa";
 	private $username = "root";
 	private $password = "";
 

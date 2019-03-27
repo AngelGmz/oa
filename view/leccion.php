@@ -11,8 +11,7 @@
             </div>
             <div class="col-12 col-md-8">
                 <div class="progress" style="min-height: 30px; height: 100%;">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar"
-                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar" style="width: <?php echo(($_SESSION['leccion']*25).'%' );?>"></div>
                 </div>
             </div>
             <div class="col-12 col-md-2">
@@ -44,16 +43,7 @@
         </div>
 
         <div class="row mt-2">
-            <div class="col-md-8 col-12">
-                <div class="card text-white  bg-primary mb-3">
-                    <div class="card-header">Video</div>
-                    <div class="card-body">
-                        <h4 class="card-title">nombre del vidio</h4>
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/kqEfoD9XYHQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4  col-12">
+        <div class="col-md-4  col-12">
                 <div class="card text-white bg-danger ">
                     <div class="card-header">Instrucciones</div>
                     <div class="card-body">
@@ -69,92 +59,53 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row mt-2">
-            <div class="col-md-12 ">
-                <div class="card text-white bg-warning mb-3">
-                    <div class="card-header">Actividad Interactiva</div>
+            <div class="col-md-8 col-12">
+                <div class="card text-white  bg-primary mb-3">
+                    <div class="card-header">Video</div>
                     <div class="card-body">
-                            <h4 class="card-title">Funcionamiento de un algoritmo</h4>
-                            <p class="card-text">Aquí podrás contralar y observar en tiempo real la ejecución de un algoritmo.</p>
-                            
-                            <div class="row">
-                            <div class="col-md-4">
-                                    <h5>Algoritmo</h5>
-                                <table class="table bg-white">
-                                    <tbody>
-                                        <tr v-bind:class="active(1)">
-                                                <td>1. INICIO</td>
-                                        </tr>
-                                        <tr v-bind:class="active(2)">
-                                                <td>2. num1 = 5;</td>
-                                        </tr>
-                                        <tr v-bind:class="active(3)">
-                                                <td>3. num2 = 6;</td>
-                                        </tr>
-                                        <tr v-bind:class="active(4)">
-                                                <td>4. suma = 0;</td>
-                                        </tr>
-                                        <tr v-bind:class="active(5)">
-                                                <td>5. suma = num1 + num2;</td>
-                                        </tr>
-                                        <tr v-bind:class="active(6)">
-                                                <td>6. imprimir('El resultado es: '+ suma);</td>
-                                        </tr>
-                                        <tr v-bind:class="active(7)">
-                                                <td>7. FIN</td>
-                                        </tr>
-                                       
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-md-4">
-                                <h5>Internamente</h5>
-                                <h5 class="bg-dark p-5">{{outNum1}}<br>{{outNum2}}<br>{{outSuma}}</h5>
-                                <h5>Pantalla</h5>
-                                <h5 class="bg-dark p-5">{{outPantalla}}<br>{{outPantalla2}}<br>{{outPantalla3}}<br></h5>
-                            </div>
-                            <div class="col-md-4">
-                                <h5>Controles</h5>
-                                <button v-on:click="prev()" class="btn btn-lg btn-primary" ><i class="fas fa-step-backward" ></i></button>
-                                <button v-on:click="play()" class="btn btn-lg btn-primary" ><i class="fas fa-play"></i></button>
-                                <button v-on:click="pause()" class="btn btn-lg btn-primary" ><i class="fas fa-pause"></i></button>
-                                <button v-on:click="next()" class="btn btn-lg btn-primary" ><i class="fas fa-step-forward"  ></i></button>
-                            </div>
-                        </div>
+                        <iframe width="100%" height="315" :src="videoLink" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
+            
         </div>
+        <!-- ACTIVIDAD INTERACTIVA -->
+        <actividad-interaciva></actividad-interaciva>
+        <!-- ACTIVIDAD INTERACTIVA -->
         <div class="row mt-2">
             <div class="col-md-12 ">
                 <div class="card text-white bg-primary mb-3">
-                    <div class="card-header">Actividad Interactiva</div>
+                    <div class="card-header">Cuestionario</div>
                     <div class="card-body text-dark bg-light">
-                        <h4 class="card-title">Nombre de la actividad</h4>
-                        <form @submit.prevent="submit">
-                            <div class="row">
+                        <form id="frm_cuestion" @submit.prevent="submit">
+                            
+                            <div v-for="(pregunta, index) in preguntas" class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <legend>1.0 ¿Cúal es la respuesta correcta?</legend>
+                                        <legend>{{index+1+'. ' }} {{pregunta.pregunta}}</legend>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" >
-                                            <label class="custom-control-label" for="customRadio1">Toggle this custom  radio</label>
+                                            <input type="radio" v-on:input="validar(1,index)" v-bind:id="pregunta.res1" required  v-bind:name="index" value="1" class="custom-control-input" >
+                                            <label class="custom-control-label" v-bind:for="pregunta.res1" >{{pregunta.res1}}</label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Or toggle this other
-                                                custom radio</label>
+                                            <input type="radio"  v-on:input="validar(2,index)" v-bind:id="pregunta.res2" v-bind:name="index" value="2" class="custom-control-input">
+                                            <label class="custom-control-label" v-bind:for="pregunta.res2" >{{pregunta.res2}}</label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio3" name="customRadio"   class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio3">Or toggle this other custom radio</label>
+                                            <input type="radio" v-on:input="validar(3,index)"  v-bind:id="pregunta.res3" v-bind:name="index" value="3" class="custom-control-input">
+                                            <label class="custom-control-label" v-bind:for="pregunta.res3">{{pregunta.res3}}</label>
                                         </div>
-
+                                        <div v-if="resArray[index] == true" class="alert alert-success" role="alert">
+                                        ¡Excelente, Contonúa así!
+                                        </div>
+                                        <div v-if="resArray[index] == false" class="alert alert-danger" role="alert">
+                                        {{ pregunta.consejo }}
+                                        </div>
                                     </div>
                                 </div>
                                
                             </div>
+
                             <div class="row mt-4">
                                 <div class="col-md-3"></div>
                                 <div class="col-md-6">

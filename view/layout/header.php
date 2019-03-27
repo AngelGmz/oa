@@ -10,6 +10,7 @@
     
     <script src="https://www.youtube.com/player_api"></script>
     <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"> </script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.dataTables.js"></script>
     
@@ -18,4 +19,5 @@
     <title>Document</title>
 </head>
 <body>
+<?php  session_start(); ?>
     

@@ -27,7 +27,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Contraseña:</label>
-                                                <input class="form-control" v-model="pwd">
+                                                <input type="password" class="form-control" v-model="pwd">
                                             </div>
                                             <input class="btn btn-primary btn-block" type="submit" value="Entrar">
                                         </form>
@@ -51,7 +51,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                                 <h5>¿No tienes cuenta?</h5>
-                                                <a href="" class="btn btn-block btn-secondary">¡Registrarme!</a><br><br>
+                                                <a href="registro.php" class="btn btn-block btn-secondary">¡Registrarme!</a><br><br>
                                         </div>
                                         <div class="col-md-6">
                                                 <h5>¿Ya completaste el curso?</h5>
