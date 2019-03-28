@@ -7,7 +7,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-2">
-                <a href="" class="btn btn-block btn-primary"><i class="fas fa-backward"></i> Anterior</a>
+                <a href="controller/cambioleccion.php?order=prev" class="btn btn-block btn-primary"><i class="fas fa-backward"></i> Anterior</a>
             </div>
             <div class="col-12 col-md-8">
                 <div class="progress" style="min-height: 30px; height: 100%;">
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-2">
-                <a href="" class="btn btn-block btn-primary">Siguiente <i class="fas fa-forward"></i></a>
+                <a href="controller/cambioleccion.php?order=next"  class="btn btn-block btn-primary">Siguiente <i class="fas fa-forward"></i></a>
             </div>
         </div>
         <!--
