@@ -7,12 +7,78 @@ Vue.component('actividad-interaciva', {
             <div class="card text-white bg-primary mb-3">
                 <div class="card-header">Actividad Interactiva</div>
                     <div class="card-body">
-                        <h4 class="card-title">Jugando con tipos de datos.</h4>
-                        <p class="card-text">Puedes módificar los valores e ir probando las diferentes convinaciones entre tipos de datos.</p>
-                        <div class="row">
-                            <div class="col-md-12">
-                                
+                        <h4 class="card-title">Contador vs Acumulador</h4>
+                        <p class="card-text">Aquí podrás probar diferentes valores de inicio y aumento para contador y acumulador y ver como aumentan.</p>
+                        <div class="row text-center">
+                            <div class="col-md-6">
+                                <h5>CONTADOR</h5>
+                                <div class="row mt-2">
+                                    <div class="col-md-6">
+                                        <label for="">Inicia en:</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="number" v-model:value="i1" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6">
+                                        <label for="">Aumento de:</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="number" v-model:value="a1" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6">
+                                        <label for="">Valor Actual:</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="form-control">{{ r1 }}</label>
+                                    </div>
+                                </div>
+                            
                             </div>
+                            <div class="col-md-6">
+                                    <h5>ACUMULADOR</h5>
+                                    <div class="row mt-2">
+                                        <div class="col-md-6">
+                                            <label for="">Inicia en:</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="number" v-model:value="i2" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-6">
+                                            <label for="">Aumento de:</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="number" v-model:value="a2" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-6">
+                                            <label for="">Valor Actual:</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="" class="form-control">{{r2}}</label>
+                                        </div>
+                                    </div>
+                                    
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-3">
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-secondary  btn-block" v-on:click="avanzar"><i class="fas fa-plus"></i> Avanzar</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-secondary  btn-block" v-on:click="reiniciar"> <i class="fas fa-redo-alt"></i> Reiniciar</button>         
+                            </div>
+                            <div class="col-md-3">
+                                    </div      
                         </div>
                     </div>
                 </div>
@@ -24,38 +90,32 @@ Vue.component('actividad-interaciva', {
     `,
     data() {
         return {
-            o1: '5',
+            i1: 0,
+            a1: 1,
+            r1: 0,
+            i2: 0,
+            a2: 7,
+            r2: 0,
            
         }
     },
     methods: {
-        next(){
-            if(this.nivel <=6 ){
-                this.nivel += 1;
-            }else{
-                this.pause()
-            }
+        avanzar(){
+            this.r1 += parseFloat(this.a1);
+            this.r2 += parseFloat(this.a2);
+        },
+        reiniciar(){
+            this.i1 = 0
+            this.a1= 1
+            this.r1= 0
+            this.i2= 0
+            this.a2= 7
+            this.r2= 0
         },
 
     },
     computed: {
-        r1(){
-            return this.o1 + this.o2;
-        },
-        r2(){
-            return parseFloat(this.o3) + parseFloat(this.o4);
-        },
-        r3(){
-            return parseFloat(this.o5) + String(this.o6);
-        },
-        r4(){
-            if(this.o7 == 'true' && this.o8  == 'true'){
-                return 'Verdadero';
-           }else{
-                return 'Falso';
-           }
-        },
-        
+      
     }
 })
 

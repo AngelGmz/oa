@@ -1,0 +1,55 @@
+
+#container1 {
+    box-shadow: inset 0 1px 0 #444, 0 -1px 0 #000;
+    background: #000;
+  }
+  
+  span.texto{
+   font-size: 18px !important;
+   font-weight: bold;
+ }
+
+ 
+ td.carretera{
+   height: 50px;
+   width: 50px;
+   background-color: rgb(107, 107, 107);
+   border-left:  5px dashed yellow;
+   border-right:  5px dashed yellow;
+   font-size: 2em;
+   font-weight: 800;
+ }
+ td.c-izq{
+   height: 50px;
+   width: 50px;
+   background-color: rgb(107, 107, 107);
+   border-top:  5px dashed yellow;
+   border-left:  5px dashed yellow;
+   font-size: 2em;
+   font-weight: 800;
+ }
+ td.c-der{
+   height: 50px;
+   width: 50px;
+   background-color: rgb(107, 107, 107);
+   border-right:  5px dashed yellow;
+   border-top:  5px dashed yellow;
+   font-size: 2em;
+   font-weight: 800;
+ }
+ td.c-cen{
+   height: 50px;
+   width: 50px;
+   background-color: rgb(107, 107, 107);
+   border-bottom:  5px dashed yellow;
+   font-size: 2em;
+   font-weight: 800;
+ }
+td > img{
+  width: 40px;
+  height: 40px;
+}
+hr{
+  color: white !important;
+  height: 5px;
+}

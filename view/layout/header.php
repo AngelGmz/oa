@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="assets/css/app.css">
     
     <script src="https://www.youtube.com/player_api"></script>
     <script src="assets/js/jquery.min.js"></script>

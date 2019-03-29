@@ -96,7 +96,7 @@
                                             <label class="custom-control-label" v-bind:for="pregunta.res3">{{pregunta.res3}}</label>
                                         </div>
                                         <div v-if="resArray[index] == true" class="alert alert-success" role="alert">
-                                        ¡Excelente, Contonúa así!
+                                        ¡Excelente, Continúa así!
                                         </div>
                                         <div v-if="resArray[index] == false" class="alert alert-danger" role="alert">
                                         {{ pregunta.consejo }}
