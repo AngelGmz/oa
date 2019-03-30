@@ -22,6 +22,7 @@ Vue.component('actividad-interaciva', {
                         <div class="row">
                             <div class="col-md-12">
                                     <h4>Condicional simple: Si (if)</h4>
+                                    <p>Cambia el resultado de la condición.</p>
                                     <div class="row ">
                                             
                                             <div class="col-md-6 text-center" >
@@ -48,8 +49,9 @@ Vue.component('actividad-interaciva', {
                         <div class="row mt-3">
                             <div class="col-md-12">
                                     <h4>Condicional doble: Si Sino (if else)</h4>
+                                    <p>Prueba con diferentes velocidades.</p>
                                     <div class="row ">
-                                            <div class="col-md-6 text-center" >
+                                            <div class="col-md-6 text-center d-flex justify-content-center" >
                                                 <table class="">
                                                     <tbody>
                                                         <tr>
@@ -108,20 +110,58 @@ Vue.component('actividad-interaciva', {
                                                 </table>
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="">Velocidad</label>
-                                                <input type="number" v-model:value="vel" :disabled="active" class="form-control">
+                                               
+                                                <div class="form-group">
+                                                    <label for="formControlRange texto"> <span class="texto">Velocidad: {{vel}} </span></label>
+                                                    <input type="range" v-bind:disabled="active == true" v-model:value="rvel" class="form-control-range" id="formControlRange">
+                                                  </div>
                                                 <span class="texto"> Si( velocidad > 100 )<br>
                                                     {<br>
                                                     usarCarrilRapido(); <br>
-                                                    }Sino<br>
+                                                    }<br>
+                                                    Sino<br>
                                                     { <br>
                                                     usarCarrilLento(); <br>
                                                     }
                                                 
                                                 </span>
-                                                <button @click="start" class="btn btn-secondary btn-block">Probar</button>
+                                                <button @click="start" v-bind:disabled="active == true" class="btn btn-secondary btn-block">Probar</button>
                                             </div>
                                     </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Ciclos: Mientras (While)</h4>
+                                <p>Aquí podras </p>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-6">
+                                -
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <div class="d-flex justify-content-center">
+                                        <div class="pila-top1 align-self-center"></div>
+                                        
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                        <div class="pila-top align-self-center"></div>
+                                        
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                        <div class="pila align-self-center"></div>
+                                        
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                        <div class="pila align-self-center"></div>
+                                        
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                        <div class="pila-bot align-self-center"></div>
+                                        
+                                </div>
                             </div>
                         </div>
                         
@@ -307,9 +347,9 @@ Vue.component('actividad-interaciva', {
         return {
           puerta: 0, 
           nivel: 1,
-          vel: 30,
           inter: null,
           active: false,
+          rvel: 30,
         }
     },
     methods: {
@@ -332,12 +372,14 @@ Vue.component('actividad-interaciva', {
                     this.nivel = 1
                     this.active = false
                 }
-            }, 1000)
+            }, 300)
         },
       
     },
     computed: {
-      
+      vel(){
+         return this.rvel*2
+      }
     }
 })
 

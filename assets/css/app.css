@@ -1,4 +1,11 @@
 
+:root{
+  --bg-pila: rgb(255, 255, 255);
+  --bord-pila: 10px;
+  --pila-vacia: #158CBA;
+  --pila-llena: rgb(255, 255, 0);
+}
+
 #container1 {
     box-shadow: inset 0 1px 0 #444, 0 -1px 0 #000;
     background: #000;
@@ -8,8 +15,50 @@
    font-size: 18px !important;
    font-weight: bold;
  }
+  label.texto{
+   font-size: 18px !important;
+   font-weight: bold;
+ }
 
  
+ div.pila-top1{
+   height: 13px;
+   width: 40px;
+   background-color: var(--bg-pila);
+ 
+   font-size: 2em;
+   font-weight: 800;
+ }
+ div.pila-top{
+   height: 50px;
+   width: 90px;
+   background-color: var(--pila-vacia);
+   border-left:  var(--bord-pila) solid var(--bg-pila);
+   border-right:   var(--bord-pila) solid var(--bg-pila);
+   border-top:   var(--bord-pila) solid var(--bg-pila);
+   font-size: 2em;
+   font-weight: 800;
+ }
+ div.pila{
+   height: 50px;
+   width: 90px;
+   background-color: var(--pila-vacia);
+   border-left:   var(--bord-pila) solid var(--bg-pila);
+   border-right:   var(--bord-pila) solid var(--bg-pila);
+   font-size: 2em;
+   font-weight: 800;
+ }
+ div.pila-bot{
+   height: 50px;
+   width: 90px;
+   background-color: var(--pila-llena);
+   border-left:   var(--bord-pila) solid var(--bg-pila);
+   border-right:   var(--bord-pila) solid var(--bg-pila);
+   border-bottom:   var(--bord-pila) solid var(--bg-pila);
+   font-size: 2em;
+   font-weight: 800;
+ }
+
  td.carretera{
    height: 50px;
    width: 50px;
@@ -49,7 +98,7 @@ td > img{
   width: 40px;
   height: 40px;
 }
-hr{
+hr.bg{
   color: white !important;
   height: 5px;
 }
