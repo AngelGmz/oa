@@ -1,3 +1,14 @@
+
+Notification.requestPermission(function(result) {
+    if (result === 'denied') {
+      console.log('Permission wasn\'t granted. Allow a retry.');
+      return;
+    } else if (result === 'default') {
+      console.log('The permission request was dismissed.');
+      return;
+    }
+    // Hacer algo con el permiso concedido.
+  });
 var app = new Vue({
     el: '#app',
     data: {

@@ -1,6 +1,7 @@
 <?php
 require_once('../model/Leccion.php');
 $obj = new Leccion();
+
 //genera el json para la tabla
 if (isset($_GET['getLeccion'])) {
 	session_start();
@@ -20,7 +21,20 @@ if (isset($_GET['getAvance'])) {
 	$tabla = $obj->getCursadoById($_SESSION['leccion'],$_SESSION['id']);
 	if($tabla != false){
 		foreach ($tabla as $key) {
-			$data["data"][] = $key;
+			$data[] = $key;
+		}
+	}else{
+		$data["data"] = array();
+	}
+	
+	echo json_encode($data);
+}
+if (isset($_GET['getAllAvance'])) {
+	session_start();
+	$tabla = $obj->getAllAvance($_SESSION['id']);
+	if($tabla != false){
+		foreach ($tabla as $key) {
+			$data[] = $key;
 		}
 	}else{
 		$data["data"] = array();
@@ -33,24 +47,9 @@ if (isset($_GET['getAvance'])) {
 //obtener datos para formulario
 
 if (isset($_GET['task'])) {
-	switch ($_GET['task']) {
-		case 'alta':
-			echo($_POST['0']);	
-			$control = 'correcto';
-		//$control = $obj->alta($_POST);
-			break;
-		case 'editar':
-				$control = $obj->editar($_POST);
-			break;	
-		case 'eliminar':
-			
-			$control = $obj->eliminar($_POST['id']);
-	
-			break;
-		default:
-			echo 'problema';
-		break;
-	}
+	session_start();
+	$control = $obj->alta($_SESSION['leccion'],$_SESSION['id']);
+		
 	if ($control) {
 		echo "correcto";
 	}else{

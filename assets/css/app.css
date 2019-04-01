@@ -39,6 +39,17 @@
    font-size: 2em;
    font-weight: 800;
  }
+ div.pila-top-llena{
+   height: 50px;
+   width: 90px;
+   background-color: var(--pila-llena);
+   border-left:  var(--bord-pila) solid var(--bg-pila);
+   border-right:   var(--bord-pila) solid var(--bg-pila);
+   border-top:   var(--bord-pila) solid var(--bg-pila);
+   font-size: 2em;
+   font-weight: 800;
+   border-bottom:   var(--pila-vacia) solid 2px;
+ }
  div.pila{
    height: 50px;
    width: 90px;
@@ -48,10 +59,30 @@
    font-size: 2em;
    font-weight: 800;
  }
- div.pila-bot{
+ div.pila-llena{
    height: 50px;
    width: 90px;
    background-color: var(--pila-llena);
+   border-left:   var(--bord-pila) solid var(--bg-pila);
+   border-bottom:   var(--pila-vacia) solid 2px;
+   border-right:   var(--bord-pila) solid var(--bg-pila);
+   font-size: 2em;
+   font-weight: 800;
+ }
+ div.pila-bot-llena{
+   height: 50px;
+   width: 90px;
+   background-color: var(--pila-llena);
+   border-left:   var(--bord-pila) solid var(--bg-pila);
+   border-right:   var(--bord-pila) solid var(--bg-pila);
+   border-bottom:   var(--bord-pila) solid var(--bg-pila);
+   font-size: 2em;
+   font-weight: 800;
+ }
+ div.pila-bot{
+   height: 50px;
+   width: 90px;
+   background-color: var(--pila-vacia);
    border-left:   var(--bord-pila) solid var(--bg-pila);
    border-right:   var(--bord-pila) solid var(--bg-pila);
    border-bottom:   var(--bord-pila) solid var(--bg-pila);

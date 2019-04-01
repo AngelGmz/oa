@@ -37,7 +37,7 @@ Vue.component('actividad-interaciva', {
                                                         <option value="0">Condición Falsa</option>
                                                     </select> )<br>
                                                     {<br>
-                                                    abrirCompuerta(); <br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;abrirCompuerta(); <br>
                                                     }
                                                 
                                                 </span>
@@ -117,11 +117,11 @@ Vue.component('actividad-interaciva', {
                                                   </div>
                                                 <span class="texto"> Si( velocidad > 100 )<br>
                                                     {<br>
-                                                    usarCarrilRapido(); <br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;usarCarrilRapido(); <br>
                                                     }<br>
                                                     Sino<br>
                                                     { <br>
-                                                    usarCarrilLento(); <br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;usarCarrilLento(); <br>
                                                     }
                                                 
                                                 </span>
@@ -134,34 +134,100 @@ Vue.component('actividad-interaciva', {
                         <div class="row">
                             <div class="col-md-12">
                                 <h4>Ciclos: Mientras (While)</h4>
-                                <p>Aquí podras </p>
+                                <p>Aquí podras ver un ejemplo de un ciclo, la pila va agontando su duración en cada vuelta del ciclo.</p>
                             </div>
                         </div>
                         <div class="row ">
-                            <div class="col-md-6">
-                                -
-                            </div>
+                            
                             <div class="col-md-6 text-center">
                                 <div class="d-flex justify-content-center">
                                         <div class="pila-top1 align-self-center"></div>
                                         
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                        <div class="pila-top align-self-center"></div>
+                                        <div v-if="carga >= 4" class="pila-top-llena align-self-center"></div>
+                                        <div  v-else  class="pila-top align-self-center"></div>
                                         
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                        <div class="pila align-self-center"></div>
+                                        <div v-if="carga >= 3" class="pila-llena align-self-center"></div>
+                                        <div v-else class="pila align-self-center"></div>
                                         
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                        <div class="pila align-self-center"></div>
+                                        <div v-if="carga >= 2" class="pila-llena  align-self-center"></div>
+                                        <div v-else class="pila align-self-center"></div>
                                         
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                        <div class="pila-bot align-self-center"></div>
+                                        <div v-if="carga >= 1" class="pila-bot-llena align-self-center"></div>
+                                        <div v-else class="pila-bot align-self-center"></div>
                                         
                                 </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <span class="texto">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td><i v-if="ciclo==1" class="fas fa-long-arrow-alt-right"></i></td>
+                                            <td>INICIO</td>
+                                        </tr>
+                                        <tr>
+                                            <td><i v-if="ciclo==2" class="fas fa-long-arrow-alt-right"></i></td>
+                                            <td> carga = 4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            <i v-if="ciclo==3" class="fas fa-long-arrow-alt-right"></i>
+                                            <i v-if="ciclo==7" class="fas fa-long-arrow-alt-right"></i>
+                                            <i v-if="ciclo==11" class="fas fa-long-arrow-alt-right"></i>
+                                            <i v-if="ciclo==15" class="fas fa-long-arrow-alt-right"></i>
+                                            <i v-if="ciclo==19" class="fas fa-long-arrow-alt-right"></i>
+                                            </td>
+                                            <td> Mientras (carga > 0 )</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            <i v-if="ciclo==4" class="fas fa-long-arrow-alt-right"></i>
+                                            <i v-if="ciclo==8" class="fas fa-long-arrow-alt-right"></i>
+                                            <i v-if="ciclo==12" class="fas fa-long-arrow-alt-right"></i>
+                                            <i v-if="ciclo==16" class="fas fa-long-arrow-alt-right"></i>
+                                            </td>
+                                            <td>{</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            <i v-if="ciclo==5" class="fas fa-long-arrow-alt-right"></i>
+                                            <i v-if="ciclo==9" class="fas fa-long-arrow-alt-right"></i>
+                                            <i v-if="ciclo==13" class="fas fa-long-arrow-alt-right"></i>
+                                            <i v-if="ciclo==17" class="fas fa-long-arrow-alt-right"></i>
+                                            </td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;carga = carga -1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            <i v-if="ciclo==6" class="fas fa-long-arrow-alt-right"></i>
+                                            <i v-if="ciclo==10" class="fas fa-long-arrow-alt-right"></i>
+                                            <i v-if="ciclo==14" class="fas fa-long-arrow-alt-right"></i>
+                                            <i v-if="ciclo==18" class="fas fa-long-arrow-alt-right"></i>
+                                            </td>
+                                            <td>}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><i v-if="ciclo==20" class="fas fa-long-arrow-alt-right"></i></td>
+                                            <td>FIN</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                 
+                            </span>
+                            <div class="row">
+                                <div class="col-md-8"><button @click="pila"  v-bind:disabled="pilaActive == true" class="btn btn-secondary btn-block">Probar</button></div>
+                                <div class="col-md-4"><button @click="rePila" v-bind:disabled="pilaActive == false || ciclo != 20"  class="btn btn-secondary btn-block">Reiniciar</button></div>
+                            </div>
+                            
                             </div>
                         </div>
                         
@@ -348,11 +414,33 @@ Vue.component('actividad-interaciva', {
           puerta: 0, 
           nivel: 1,
           inter: null,
+          inter2: null,
           active: false,
+          pilaActive: false,
           rvel: 30,
+          carga: 4,
+          ciclo: 1,
         }
     },
     methods: {
+        pila(){
+            this.pilaActive = true;
+            this.inter2 = setInterval(() => {
+                this.ciclo += 1
+                if(this.ciclo == 5 || this.ciclo == 9 || this.ciclo == 13 || this.ciclo == 17){
+                    this.carga -= 1
+                }
+                if(this.ciclo > 19 ){
+                    clearInterval( this.inter2)
+                }
+            }, 300)
+        },
+        rePila(){
+            this.pilaActive = false;
+            this.carga = 4
+            this.ciclo = 1
+            
+        },
         algo(){
             if(this.puerta == 1){
                 cascada.init();
@@ -390,7 +478,7 @@ var app = new Vue({
         errors: [],
         title: null,
         actividad: null,
-        completo: false,
+        completo: '',
         contrar: '',
         preguntas: [],
         videoLink: null,
@@ -425,6 +513,26 @@ var app = new Vue({
                     this.res3 = response['data'][2].correcta
                     this.res4 = response['data'][3].correcta
                     this.res5 = response['data'][4].correcta
+                })
+                .catch(function (response) {
+                    //handle error
+                    console.log(response);
+                });
+            
+            //obtener avance
+            axios({
+                method: 'get',
+                url: 'controller/leccion.php?getAvance=1',
+
+                config: { headers: { 'Content-Type': 'multipart/form-data' } }
+            })
+                .then(response => {
+                    let c = response['data'][0].cursado
+                    if( c == 1 ){
+                        this.completo = '[Leccion Completada]'
+                    }
+                    
+
                 })
                 .catch(function (response) {
                     //handle error
@@ -489,9 +597,8 @@ var app = new Vue({
             })
                 .then(response => {
                     //handle success
-                    if (response.data) {
-                        var notification = new Notification("Guardado correcto")
-                    }
+                    var notification = new Notification("Guardado correcto")
+                    window.location.href = "controller/cambioleccion.php?order=next"
                 })
                 .catch(function (response) {
                     //handle error

@@ -38,7 +38,7 @@
 
         <div class="row mt-3">
             <div class="col-md-12">
-                <h3>{{ title }}</h3>
+                <h3>{{ title }} {{completo}}</h3>
             </div>
         </div>
 
@@ -84,15 +84,15 @@
                                     <div class="form-group">
                                         <legend>{{index+1+'. ' }} {{pregunta.pregunta}}</legend>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" v-on:input="validar(1,index)" v-bind:id="pregunta.res1" required  v-bind:name="index" value="1" class="custom-control-input" >
+                                            <input required type="radio" v-on:input="validar(1,index)" v-bind:id="pregunta.res1" v-bind:name="index" value="1" class="custom-control-input" >
                                             <label class="custom-control-label" v-bind:for="pregunta.res1" >{{pregunta.res1}}</label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio"  v-on:input="validar(2,index)" v-bind:id="pregunta.res2" v-bind:name="index" value="2" class="custom-control-input">
+                                            <input required type="radio"  v-on:input="validar(2,index)" v-bind:id="pregunta.res2" v-bind:name="index" value="2" class="custom-control-input">
                                             <label class="custom-control-label" v-bind:for="pregunta.res2" >{{pregunta.res2}}</label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" v-on:input="validar(3,index)"  v-bind:id="pregunta.res3" v-bind:name="index" value="3" class="custom-control-input">
+                                            <input required type="radio" v-on:input="validar(3,index)"  v-bind:id="pregunta.res3" v-bind:name="index" value="3" class="custom-control-input">
                                             <label class="custom-control-label" v-bind:for="pregunta.res3">{{pregunta.res3}}</label>
                                         </div>
                                         <div v-if="resArray[index] == true" class="alert alert-success" role="alert">

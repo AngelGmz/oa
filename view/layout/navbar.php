@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#"><i class="fas fa-book"></i> Lista de lecciones <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="lecciones.php"><i class="fas fa-book"></i> Lista de lecciones <span class="sr-only">(current)</span></a>
       </li>
     </ul>
     <div class="form-inline my-2 my-lg-0">
@@ -15,3 +15,6 @@
 </div>
   </div>
 </nav>
+<?php if(!isset($_SESSION['leccion'])){
+   header("location: index.php");
+} ?>

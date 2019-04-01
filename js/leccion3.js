@@ -166,6 +166,26 @@ var app = new Vue({
                     //handle error
                     console.log(response);
             });
+
+               //obtener avance
+               axios({
+                method: 'get',
+                url: 'controller/leccion.php?getAvance=1',
+
+                config: { headers: { 'Content-Type': 'multipart/form-data' } }
+            })
+                .then(response => {
+                    let c = response['data'][0].cursado
+                    if( c == 1 ){
+                        this.completo = '[Leccion Completada]'
+                    }
+                    
+
+                })
+                .catch(function (response) {
+                    //handle error
+                    console.log(response);
+                });
         })
     },
     methods: {
@@ -225,9 +245,10 @@ var app = new Vue({
                         })
                         .then(response => {
                             //handle success
-                        if(response.data){
+                        
                             var notification = new Notification("Guardado correcto")
-                        }
+                            window.location.href = "controller/cambioleccion.php?order=next"
+                        
                         })
                         .catch(function (response) {
                             //handle error
