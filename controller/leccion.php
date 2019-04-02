@@ -2,7 +2,6 @@
 require_once('../model/Leccion.php');
 $obj = new Leccion();
 
-//genera el json para la tabla
 if (isset($_GET['getLeccion'])) {
 	session_start();
 	$tabla = $obj->getById($_SESSION['leccion']);

@@ -9,6 +9,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="lecciones.php"><i class="fas fa-book"></i> Lista de lecciones <span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="muro.php"><i class="fas fa-star"></i> Muro del conocimiento <span class="sr-only">(current)</span></a>
+      </li>
     </ul>
     <div class="form-inline my-2 my-lg-0">
       <a href="index.php"><button class="btn btn-secondary my-2 my-sm-0">Salir</button></a> 

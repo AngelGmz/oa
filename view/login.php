@@ -1,4 +1,3 @@
-
 <div id="app">
     <div class="container full-h mt-5">
         <div class="row text-center">
@@ -56,7 +55,7 @@
                                         </div>
                                         <div class="col-md-6">
                                                 <h5>¿Ya completaste el curso?</h5>
-                                                <a href="" class="btn btn-block btn-success">Muro del Conocimiento 8)</a>
+                                                <a href="muro.php" class="btn btn-block btn-success">Muro del Conocimiento 8)</a>
                                         </div>
                                     </div>
                             </div>

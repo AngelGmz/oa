@@ -168,7 +168,7 @@ var app = new Vue({
       errors: [],
       title: null,
       actividad: null,
-      completo: false,
+      completo: '',
       contrar: '',
       preguntas: [],
       videoLink: null,

@@ -1,6 +1,6 @@
 <?php
-require_once('../model/Usuarios.php');
-$obj = new Usuarios();
+require_once('../model/Muro.php');
+$obj = new Muro();
 //genera el json para la tabla
 if (isset($_GET['get'])) {
 	session_start();
